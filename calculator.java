@@ -13,7 +13,7 @@ public class calculator {
         int num1Calc = num1.nextInt();
        
         Scanner num2 = new Scanner(System.in);
-        System.out.println("Insert o segundo número");
+        System.out.println("Insira o segundo número");
         
         int num2Calc = num2.nextInt();
 
