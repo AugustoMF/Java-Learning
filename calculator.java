@@ -11,11 +11,12 @@ public class calculator {
         System.out.println("Insert a number ");
 
         int num1Calc = num1.nextInt();
-        
+       
         Scanner num2 = new Scanner(System.in);
         System.out.println("Insert the second number");
         
         int num2Calc = num2.nextInt();
+
 
         Scanner usr = new Scanner(System.in);
         System.out.println("Digite + para adição \nDigite - para subtração \nDigite x para multiplicação \nDigite / para divisão");
@@ -41,6 +42,9 @@ public class calculator {
         else{
             System.out.println("Operação inválida, insira seu operador novamente!50");
         }
+        num1.close();
+        num2.close();
+        usr.close();
 
     }
         
