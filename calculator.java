@@ -7,6 +7,10 @@ import java.util.Scanner;
 
 public class calculator {
     public static void main (String[] args){
+
+        boolean run = true;
+
+        while (run) {
         Scanner num1 = new Scanner(System.in);
         System.out.println("Insira um número");
 
@@ -42,10 +46,23 @@ public class calculator {
         else{
             System.out.println("Operação inválida, insira seu operador novamente!50");
         }
-        num1.close();
-        num2.close();
-        usr.close();
 
-    }
-        
+        Scanner runAgain = new Scanner (System.in);
+        System.out.println("Deseja Fazer outra conta? \nSe sim, digite sim, caso contrário digite qualquer outra coisa");
+
+        String question = runAgain.nextLine();
+
+        if (question.equals("sim")){
+            System.out.println("Ok!");
+        }
+        else{
+            System.out.println("Adeus!");
+            run = false;
+            num1.close();
+            num2.close();
+            usr.close();
+            runAgain.close();
+           }
+        }
+    }    
 }
