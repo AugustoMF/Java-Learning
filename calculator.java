@@ -8,12 +8,12 @@ import java.util.Scanner;
 public class calculator {
     public static void main (String[] args){
         Scanner num1 = new Scanner(System.in);
-        System.out.println("Insert a number ");
+        System.out.println("Insira um número");
 
         int num1Calc = num1.nextInt();
        
         Scanner num2 = new Scanner(System.in);
-        System.out.println("Insert the second number");
+        System.out.println("Insert o segundo número");
         
         int num2Calc = num2.nextInt();
 
