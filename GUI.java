@@ -6,58 +6,88 @@
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.GridLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
-public class GUI implements ActionListener{
+public class GUI implements ActionListener {
 
-    int count = 0;
-    JLabel label;
-    JPanel panel;
-    JFrame frame; 
-    
-    public GUI(){
+    String troll = ("Fuck the Browns");
+    String championships = ("The steelers are 6 times SuperBowl Champs");
+    private JLabel label;
+    private JPanel panel;
+    private JFrame frame;
+    private Border border;
+    private ImageIcon image;
+    private JButton button;
+    private JButton test;
 
-        frame =  new JFrame();
+    public GUI() {
 
-        JButton button = new JButton("I am a BUTTON");
-        button.addActionListener(this);
-        button.setBackground(Color.white);
-
-        label = new JLabel("Number of clicks");
-        
-
+        image = new ImageIcon("steelers.png");
+        border = BorderFactory.createLineBorder(Color.gray, 3);
         panel = new JPanel();
-        panel.setBorder((BorderFactory.createEmptyBorder(350, 350, 350, 350)));
-        panel.setLayout(new GridLayout(0, 1));
-        panel.add(button);
-        panel.add(label);
-        panel.setBackground(Color.LIGHT_GRAY);
+        frame = new JFrame();
+        label = new JLabel("Java GUI label");
+        button = new JButton("Click Me");
+        test = new JButton("Data");
 
+        test.addActionListener(new TestButtonListener());
+        test.setBackground(Color.LIGHT_GRAY);
+        test.setBounds(0, 720, 100, 30);
+
+        button.addActionListener(this);
+        button.setBackground(Color.LIGHT_GRAY);
+        button.setBounds(650, 720, 100, 30);
+
+        label.setHorizontalTextPosition(JLabel.CENTER);
+        label.setVerticalTextPosition(JLabel.BOTTOM);
+        label.setIcon(image);
+        label.setIconTextGap(20);
+        label.setForeground(Color.gray);
+        label.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+        label.setBackground(Color.BLACK);
+        label.setBorder(border);
+        label.setOpaque(false);
+        label.setVerticalAlignment(JLabel.CENTER);
+        label.setHorizontalAlignment(JLabel.CENTER);
+        label.setBounds(115, 100, 500, 500);
+
+        panel.setLayout(null); 
+        panel.setBorder(BorderFactory.createEmptyBorder(400, 400, 400, 400));
+        panel.add(label);
+        panel.add(button);
+        panel.add(test);
+        panel.setBackground(Color.white);
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("I am a JAVA GUI");
-        frame.pack();
+        frame.setSize(750, 750);
         frame.setVisible(true);
         frame.getContentPane().setBackground(Color.BLACK);
     }
 
-    public static void main (String[] args){
+    public static void main(String[] args) {
         new GUI();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        count++;
-        label.setText("Number of clicks " + count);
+        label.setText(troll);
     }
 
-
+    private class TestButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            label.setText(championships);
+        }
+    }
 }
